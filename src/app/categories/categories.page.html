@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Novedades
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-row class="categories-list" color="primary">
+    <ion-col class="category-item travel-category" size="12">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/bono.jpg'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 75, h: 30 }">
+          <a class="category-anchor"> </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col class="category-item travel-category" size="12">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/Pokerstars.jpg'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 75, h: 20 }">
+          <a class="category-anchor" [href]="['https://www.pokerstars.com/']">
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col class="category-item travel-category" size="12">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/OBDL960.jpg'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 75, h: 49 }">
+          <a class="category-anchor" [routerLink]="['/news']">
+            <h2 class="category-title">Novedades</h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col class="category-item fashion-category" size="6">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/122775-OQEBXP-644.jpg'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 1, h: 1 }">
+          <a class="category-anchor" [routerLink]="['/results']">
+            <h2 class="category-title">Resultados</h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col class="category-item food-category" size="6">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/categories/food.png'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 1, h: 1 }">
+          <a class="category-anchor" [routerLink]="['/gallery-of-fame']">
+            <h2 class="category-title">Salòn de la fama</h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+    <ion-col class="category-item deals-category" size="12">
+      <app-image-shell
+        [mode]="'cover'"
+        class="category-cover"
+        animation="spinner"
+        [src]="'./assets/sample-images/trivia.jpg'"
+      >
+        <app-aspect-ratio [ratio]="{ w: 75, h: 30 }">
+          <a class="category-anchor" [routerLink]="['/quizz']">
+            <h2 class="category-title">Trivias</h2>
+          </a>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+  </ion-row>
+</ion-content>

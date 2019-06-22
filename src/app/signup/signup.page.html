@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="signup-content">
+  <img
+    _ngcontent-c2=""
+    class="icon"
+    src="./assets/sample-images/agencia-fun.png"
+    alt=""
+  />
+  <form [formGroup]="signupForm" (ngSubmit)="doSignup()">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item">
+        <ion-input placeholder="Nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="input-item"
+        ><ion-input placeholder="Apellido" type="text"></ion-input
+      ></ion-item>
+      <ion-item class="input-item"
+        ><ion-input placeholder="Fecha de Nacimiento" type="text"></ion-input
+      ></ion-item>
+      <ion-item class="input-item"
+        ><ion-input placeholder="Agencia Fan" type="text"></ion-input
+      ></ion-item>
+
+      <ion-item class="input-item">
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          clearInput
+          autocapitalize="off"
+          inputmode="email"
+        ></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div
+            class="error-message"
+            *ngIf="
+              signupForm.get('email').hasError(validation.type) &&
+              (signupForm.get('email').dirty || signupForm.get('email').touched)
+            "
+          >
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <div formGroupName="matching_passwords">
+        <ion-item class="input-item">
+          <app-show-hide-password>
+            <ion-input
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            ></ion-input>
+          </app-show-hide-password>
+        </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div
+              class="error-message"
+              *ngIf="
+                signupForm
+                  .get('matching_passwords')
+                  .get('password')
+                  .hasError(validation.type) &&
+                (signupForm.get('matching_passwords').get('password').dirty ||
+                  signupForm.get('matching_passwords').get('password').touched)
+              "
+            >
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item class="input-item">
+          <app-show-hide-password>
+            <ion-input
+              type="password"
+              placeholder="Confirm Password"
+              formControlName="confirm_password"
+            ></ion-input>
+          </app-show-hide-password>
+        </ion-item>
+        <div class="error-container">
+          <ng-container
+            *ngFor="let validation of validation_messages.confirm_password"
+          >
+            <div
+              class="error-message"
+              *ngIf="
+                signupForm
+                  .get('matching_passwords')
+                  .get('confirm_password')
+                  .hasError(validation.type) &&
+                (signupForm.get('matching_passwords').get('confirm_password')
+                  .dirty ||
+                  signupForm.get('matching_passwords').get('confirm_password')
+                    .touched)
+              "
+            >
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="error-container">
+        <ng-container
+          *ngFor="let validation of validation_messages.matching_passwords"
+        >
+          <div
+            class="error-message"
+            *ngIf="
+              signupForm.get('matching_passwords').hasError(validation.type) &&
+              (signupForm.get('matching_passwords').get('confirm_password')
+                .dirty ||
+                signupForm.get('matching_passwords').get('confirm_password')
+                  .touched)
+            "
+          >
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-button
+      class="signup-btn"
+      color="tertiary"
+      type="submit"
+      expand="block"
+      [disabled]="!signupForm.valid"
+      >Registrarte</ion-button
+    >
+    <ion-row class="other-auth-options-row">
+      <ion-button class="login-btn" fill="clear" [routerLink]="['/auth/login']">
+        Si estas registrado has click aquí.
+      </ion-button>
+    </ion-row>
+  </form>
+
+  <div class="legal-stuff">
+    By Agencia FAN an account you agree to our
+    <a class="legal-action">Privacy Policy</a> and
+    <a class="legal-action">Terms of use</a>.
+  </div>
+</ion-content>

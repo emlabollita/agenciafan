@@ -1,0 +1,47 @@
+<ion-header no-border color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-profile-content" color="primary">
+  <ion-row class="user-details-section">
+    <ion-col class="user-image-wrapper">
+      <app-aspect-ratio [ratio]="{ w: 1, h: 1 }">
+        <app-image-shell
+          class="user-image"
+          animation="spinner"
+          [src]="profile.userImage"
+        ></app-image-shell>
+      </app-aspect-ratio>
+    </ion-col>
+    <ion-col class="user-info-wrapper">
+      <ion-row class="user-data-row">
+        <ion-col size="9">
+          <h3 class="user-name">
+            <app-text-shell [data]="profile.name"></app-text-shell>
+          </h3>
+          <h5 class="user-title">
+            <app-text-shell [data]="profile.job"></app-text-shell>
+          </h5>
+        </ion-col>
+      </ion-row>
+      <ion-row class="actions-row">
+        <ion-col class="secondary-actions">
+          <ion-button class="more-btn" size="small" fill="clear" color="medium">
+            <ion-icon slot="icon-only" name="more"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <div class="user-about-section">
+    <h3 class="details-section-title">Perfil</h3>
+    <p class="user-description">
+      Esteban Lopez
+    </p>
+  </div>
+</ion-content>
